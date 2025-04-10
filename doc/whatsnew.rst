@@ -44,8 +44,10 @@ SSP :ref:`ssp-2024`/ScenarioMIP
 
 Improve :mod:`.ssp.transport`:
 
-- Add :func:`.prepare_method_B` and make this the default (:pull:`259`).
-- Add :func:`~.ssp.transport.process_df` (:pull:`303`).
+- Add :func:`~.ssp.transport.method_B` and make this the default (:pull:`259`, :pull:`330`).
+- Add :func:`~.ssp.transport.method_C` (:issue:`305`, :pull:`325`, :pull:`330`).
+- Add :func:`~.ssp.transport.process_df` (:pull:`303`);
+  handle data frames containing :py:`np.NaN` (:pull:`330`).
 - Adapt to revised ‘variable’ codes (:pull:`309`, :issue:`304`).
 
 Transport
@@ -85,7 +87,7 @@ Update :doc:`/transport/index` (:pull:`259`, :pull:`289`, :pull:`300`).
 Documentation
 -------------
 
-- New :doc:`/howto/index` documentation sub-tree (:pull:`291`).
+- New :doc:`/howto/index` documentation sub-tree (:pull:`291`, :pull:`326`).
 - New guide on HOWTO :doc:`/howto/unicc` (:pull:`279`) and supporting command :program:`mix-models sbatch` in :mod:`.util.slurm` (:pull:`291`).
 - New summary pages for projects
   :doc:`project/alps`,
@@ -102,7 +104,9 @@ Documentation
   :doc:`project/ngfs`,
   :doc:`project/prisma`,
   :doc:`project/sparccle`, and
-  :doc:`project/uptake` (:pull:`282`).
+  :doc:`project/uptake` (:pull:`282`, :pull:`312`).
+- Expand the :ref:`costs-usage` section of the :mod:`.tools.costs` documentation to describe the requirement for SSP input data (:issue:`313`, :pull:`322`).
+- Reorganize and improve the :doc:`data` documentation page (:pull:`326`).
 
 v2025.1.10
 ==========

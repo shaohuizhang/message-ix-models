@@ -1,6 +1,6 @@
 """Tests of :mod:`.tools`."""
 
-from typing import TYPE_CHECKING
+import logging
 
 import pandas as pd
 import pytest
@@ -18,25 +18,7 @@ from message_ix_models.tools.iea.web import (
 )
 from message_ix_models.util import HAS_MESSAGE_DATA
 
-if TYPE_CHECKING:
-    from collections.abc import Generator
-
-
-@pytest.fixture
-def user_local_data(pytestconfig, request) -> "Generator":  # pragma: no cover
-    """Symlink :path:`…/iea/` in the test local data directory to the user's."""
-    if "test_context" not in request.fixturenames:
-        return
-    test_local_data = request.getfixturevalue("test_context").core.local_data
-    user_local_data = pytestconfig.user_local_data
-
-    source = test_local_data.joinpath("iea")
-    source.symlink_to(user_local_data.joinpath("iea"))
-
-    try:
-        yield
-    finally:
-        source.unlink()
+log = logging.getLogger(__name__)
 
 
 _FLOW = [
@@ -55,7 +37,6 @@ _FLOW = [
 @IEA_EWEB.transform.minimum_version
 class TestIEA_EWEB:
     # Uncomment the following line to use the full data files from a local copy
-    # @pytest.mark.usefixtures("user_local_data")
     @pytest.mark.parametrize("source", ("IEA_EWEB",))
     @pytest.mark.parametrize(
         "source_kw",

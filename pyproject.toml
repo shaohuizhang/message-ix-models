@@ -15,7 +15,6 @@ classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: Apache Software License",
   "Natural Language :: English",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
@@ -29,6 +28,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
   "Topic :: Scientific/Engineering :: Information Analysis",
 ]
+license = "Apache-2.0"
 requires-python = ">=3.9"
 dependencies = [
   "click",
@@ -43,7 +43,7 @@ dependencies = [
   "pyarrow",
   "pycountry",
   "PyYAML",
-  "sdmx1 >= 2.13.1",
+  "sdmx1 >= 2.22.0",
   "tqdm",
   "pyxlsb >= 1.0.10",
 ]
@@ -176,7 +176,7 @@ select = ["C9", "E", "F", "I", "W"]
 # - .util.sdmx.as_codes(): 13 > 11
 mccabe.max-complexity = 11
 
-[tool.setuptools.packages]
-find = {}
+[tool.setuptools]
+packages = ["message_ix_models"]
 
 [tool.setuptools_scm]
